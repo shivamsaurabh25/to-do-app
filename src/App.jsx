@@ -10,6 +10,7 @@ const App = () => {
   });
 
   const [user, setUser] = useState(null);
+  const [filter, setFilter] = useState("All");
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -31,11 +32,16 @@ const App = () => {
       prevTasks.map((task, i) => (i === index ? { ...task, text: newText } : task))
     );
   };
-  
 
   const deleteTask = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
   };
+
+  const filteredTasks = tasks.filter((task) => {
+    if (filter === "Completed") return task.completed;
+    if (filter === "Pending") return !task.completed;
+    return true;
+  });
 
   return (
     <div className="container">
@@ -43,8 +49,19 @@ const App = () => {
       {user && (
         <div className="app">
           <h2>To-Do List</h2>
+          <div className="filter-buttons">
+            <button onClick={() => setFilter("All")} className={filter === "All" ? "active" : ""}>All</button>
+            <button onClick={() => setFilter("Completed")} className={filter === "Completed" ? "active" : ""}>Completed</button>
+            <button onClick={() => setFilter("Pending")} className={filter === "Pending" ? "active" : ""}>Pending</button>
+          </div>
+
           <TaskForm addTask={addTask} />
-          <TaskList tasks={tasks} toggleComplete={toggleComplete} deleteTask={deleteTask} editTask={editTask} />
+          <TaskList
+            tasks={filteredTasks}
+            toggleComplete={toggleComplete}
+            deleteTask={deleteTask}
+            editTask={editTask}
+          />
         </div>
       )}
     </div>

@@ -1,98 +1,142 @@
 body {
-    font-family: 'Poppins', sans-serif;
-    background:  linear-gradient(135deg, #000428, #004e92);
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #000428, #004e92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-  }
-  
-  .container {
-    width: 90%;
-    max-width: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    padding: 20px;
-  }
-  
-  * {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffcc00);
-  }
-  
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .task-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .task {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 12px;
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .task.completed span {
-    text-decoration: line-through;
-    opacity: 0.6;
-  }
-  
-  input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    font-size: 16px;
-    background: rgba(255, 255, 255, 0.3);
-  }
-  
-  button {
-    background: rgba(255, 255, 255, 0.3);
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
-  }
-  
-  button:hover {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  
-  .done-btn {
-    background: rgba(0, 255, 0, 0.4);
-  }
-  
-  .done-btn:hover {
-    background: rgba(0, 255, 0, 0.6);
-  }
-  
-  .delete-btn {
-    background: rgba(255, 0, 0, 0.4);
-  }
-  
-  .delete-btn:hover {
-    background: rgba(255, 0, 0, 0.6);
-  }
+.container {
+  width: 90%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  text-align: center;
+}
+
+* {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffcc00);
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.task-list {
+  padding: 0;
+  margin-top: 15px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.task-item:hover {
+  transform: scale(1.02);
+}
+
+.task-text.strike {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  outline: none;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.done-btn {
+  background: rgba(0, 255, 0, 0.25);
+}
+
+.done-btn:hover {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.delete-btn {
+  background: rgba(255, 0, 0, 0.25);
+}
+
+.delete-btn:hover {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.edit-btn {
+  background: rgba(0, 128, 255, 0.25);
+}
+
+.edit-btn:hover {
+  background: rgba(0, 128, 255, 0.5);
+}
+
+.save-btn {
+  background: rgba(255, 165, 0, 0.3);
+}
+
+.save-btn:hover {
+  background: rgba(255, 165, 0, 0.6);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.filter-buttons button {
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 14px;
+}
+
+.filter-buttons button.active {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}

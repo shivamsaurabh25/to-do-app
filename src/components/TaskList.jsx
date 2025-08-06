@@ -12,7 +12,7 @@ const TaskList = ({ tasks, toggleComplete, deleteTask, editTask }) => {
   const handleSave = (index) => {
     if (editText.trim() !== "") {
       editTask(index, editText);
-      setEditIndex(null); // Exit edit mode
+      setEditIndex(null);
     }
   };
 
@@ -28,7 +28,12 @@ const TaskList = ({ tasks, toggleComplete, deleteTask, editTask }) => {
               className="edit-input"
             />
           ) : (
-            <span onClick={() => toggleComplete(index)}>{task.text}</span>
+            <span
+              onClick={() => toggleComplete(index)}
+              className={`task-text ${task.completed ? "strike" : ""}`}
+            >
+              {task.text}
+            </span>
           )}
 
           <div className="task-buttons">
