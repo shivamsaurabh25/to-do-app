@@ -48,7 +48,7 @@ const App = () => {
       <Auth setUser={setUser} />
       {user && (
         <div className="app">
-          <h2>To-Do List</h2>
+          <h2 className="gradient-text">To-Do List</h2>
           <div className="filter-buttons">
             <button onClick={() => setFilter("All")} className={filter === "All" ? "active" : ""}>All</button>
             <button onClick={() => setFilter("Completed")} className={filter === "Completed" ? "active" : ""}>Completed</button>

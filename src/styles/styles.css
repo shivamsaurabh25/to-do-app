@@ -20,7 +20,7 @@ body {
   text-align: center;
 }
 
-* {
+.gradient-text {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -53,12 +53,18 @@ h2 {
   transform: scale(1.02);
 }
 
+.task-text {
+  color: white;
+  cursor: pointer;
+}
+
 .task-text.strike {
   text-decoration: line-through;
   opacity: 0.6;
 }
 
-input[type="text"] {
+input[type="text"],
+.edit-input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
